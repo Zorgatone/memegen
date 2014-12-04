@@ -11,7 +11,7 @@
 	var completeHandler = function completeHandler(data) {
 		var pattern = /<!--(((?!-->).)*)-->/; // Match the content of the HTML comment
 		var matches = data.match(pattern);
-		
+
 		if(matches != null && matches.length > 1) {
 			var decoded = matches[1];
 			var response = JSON.parse(decoded);
@@ -26,7 +26,7 @@
 						$(this).fadeIn();
 					}
 				});
-				$('#memeGenForm input[type=submit]:first-child').attr('disabled', 'disabled');
+				//$('#memeGenForm input[type=submit]:first-child').attr('disabled', 'disabled');
 			}
 		} else {
 			console.log('No response from server.');
@@ -46,7 +46,6 @@
 	var submit = function submit() {
 		var formData = new FormData($('form')[0]);
 		$.ajax({
-			//url: 'info.php',
 			url: 'gen/memegen.php',
 			type: 'POST',
 			xhr: function() {
@@ -57,7 +56,6 @@
 				return myXhr;
 			},
 			success: completeHandler,
-			//error: errorHandler,
 			data: formData,
 			cache: false,
 			contentType: false,
@@ -76,15 +74,13 @@
 	
 	var buttonActivate = function buttonActivate() {
 		if($('#memeGenForm textarea').val().length > 0) {
-			$('#memeGenForm input[type=submit]:first-child').removeAttr('disabled');
+			//$('#memeGenForm input[type=submit]:first-child').removeAttr('disabled');
 		} else {
-			$('#memeGenForm input[type=submit]:first-child').attr('disabled', 'disabled');
+			//$('#memeGenForm input[type=submit]:first-child').attr('disabled', 'disabled');
 		}
 	};
-	
-	//console.log('ready?');
+
 	$(document).ready(function() {
-		//console.log('go!');
 		$('#memeGenForm').submit(submit);
 		$('#memeGenForm input[type=file]').change(memeSelect);
 		$('#memeGenForm textarea').keyup(buttonActivate);

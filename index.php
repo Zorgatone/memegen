@@ -4,7 +4,7 @@
 		<title>
 			#HGARE:MemeGen
 		</title>
-		<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 		<link rel="stylesheet" href="css/main.css" />
 		<script>
 			jQuery = jQuery.noConflict();
@@ -50,10 +50,16 @@
 				</tbody>
 				<tfoot>
 					<tr>
+                        <!--
 						<td>
 							<input type="submit" name="preview" value="Anteprima" disabled="disabled" />
 							<input type="submit" name="send" value="Invia" disabled="disabled" />
 						</td>
+						-->
+                        <td>
+                            <input type="submit" name="preview" value="Anteprima" />
+                            <input type="submit" name="send" value="Invia" />
+                        </td>
 					</tr>
 				</tfoot>
 			</table>

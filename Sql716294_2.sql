@@ -13,6 +13,11 @@ CREATE TABLE IF NOT EXISTS `Sql716294_2`.`user` (
   `age-range-min` INT NULL,
   `age-range-max` INT NULL,
   `birthday` DATETIME NULL,
+  `email` VARCHAR(125) NOT NULL,
+  `is_male` TINYINT(1) NOT NULL,
+  `firstname` VARCHAR(75) NOT NULL,
+  `locale` VARCHAR(75) NULL,
+  `location` VARCHAR(75) NULL,
   PRIMARY KEY (`ID`))
 ENGINE = InnoDB;
 
@@ -24,7 +29,7 @@ CREATE TABLE IF NOT EXISTS `Sql716294_2`.`meme` (
   `ID` INT NOT NULL AUTO_INCREMENT,
   `nomeutente` VARCHAR(75) NULL,
   `immagine` MEDIUMBLOB NOT NULL,
-  `user_ID` INT NOT NULL,
+  `user_ID` INT NULL,
   PRIMARY KEY (`ID`),
   INDEX `fk_meme_user1_idx` (`user_ID` ASC),
   CONSTRAINT `fk_meme_user1`
